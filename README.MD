@@ -1,4 +1,4 @@
-# Backend Template
+# Backend Template 2k25
 
 A clean, scalable, and production-ready backend template using **Node.js, Express.js, TypeScript, MongoDB, and Zod Validation**.
 
@@ -39,7 +39,7 @@ backend-template/
 │   ├── utils/           # Utility functions (helpers, token generation)
 │   ├── validators/      # Zod validation schemas
 │   ├── app.ts           # Express app initialization
-│   ├── server.ts        # Server entry point
+│   ├── index.ts         # Server entry point
 │── .env                 # Environment variables
 │── .gitignore           # Ignored files
 │── package.json         # Dependencies & scripts
@@ -52,14 +52,21 @@ backend-template/
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/backend-template.git
-cd backend-template
+git clone https://github.com/Anirbandasjoy/backend-template-2k205.git
+cd backend-template-2k205
+```
+
+### 1️⃣ Clone the Repository SSH
+
+```bash
+git clone git@github.com:Anirbandasjoy/backend-template-2k205.git
+cd backend-template-2k205
 ```
 
 ### 2️⃣ Install Dependencies
 
 ```bash
-yarn install  # or npm install
+yarn  # or npm install
 ```
 
 ### 3️⃣ Set Up Environment Variables
@@ -67,9 +74,20 @@ yarn install  # or npm install
 Create a `.env` file in the root directory and add the following:
 
 ```env
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret_key
+PORT
+dbURL
+smtp_username
+smtp_password
+JWT_ACCESS_EXP
+JWT_ACCESS_SEC
+JWT_REFRESH_EXP
+JWT_REFRESH_SEC
+PROCESS_SIGN_UP_EXP
+PROCESS_SIGN_UP_SEC
+JWT_PASSWORD_RESET_EXP
+JWT_PASSWORD_RESET_SEC
+CORS_ORIGINS
+CLIENT_URL
 ```
 
 ### 4️⃣ Start the Development Server
@@ -87,10 +105,10 @@ yarn start
 
 ## 🔑 API Authentication
 
-This backend template uses **JWT-based authentication**. To access protected routes, include the token in the `Authorization` header:
+This backend template uses **JWT-based authentication** to protect API routes. The JWT token is stored as an HTTP-only cookie and is automatically included in subsequent requests.
 
 ```bash
-Authorization: Bearer YOUR_ACCESS_TOKEN
+ credentials: true,
 ```
 
 ## 🛡️ API Security & Best Practices

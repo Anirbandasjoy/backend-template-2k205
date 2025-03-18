@@ -8,8 +8,19 @@ import { errorResponse } from "./utils/response";
 import { createError } from "./config";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+
+import rateLimit from "express-rate-limit";
 import rootRouter from "./routers";
+
 const app = express();
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+  message: "Too many requests from this IP, please try again later.",
+});
+
+app.use(limiter);
 
 app.use(
   cors({
@@ -29,6 +40,8 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
+// XSS protection: sanitize user input
 
 app.get("/", (_req: Request, res: Response) => {
   res.send("backend template 2025");
