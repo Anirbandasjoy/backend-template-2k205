@@ -20,7 +20,7 @@ A clean, scalable, and production-ready backend template using **Node.js, Expres
 
 - **Language:** TypeScript
 - **Framework:** Express.js
-- **Database:** MongoDB (Mongoose ORM)
+- **Database:** MongoDB (Mongoose ODM)
 - **Authentication:** JWT (JSON Web Token)
 - **Validation:** Zod
 - **Linting & Formatting:** ESLint, Prettier
