@@ -14,7 +14,7 @@ A clean, scalable, and production-ready backend template using **Node.js, Expres
 - ✅ **Error Handling & Logging** for better debugging
 - ✅ **CORS & Security Middlewares** for API protection
 - ✅ **Modular Folder Structure** for easy scalability
-- ✅ **Preconfigured Linting & Formatting** using ESLint & Prettier
+<!-- - ✅ **Preconfigured Linting & Formatting** using ESLint & Prettier -->
 
 ## 🛠 Tech Stack
 
