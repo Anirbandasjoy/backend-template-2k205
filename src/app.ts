@@ -8,17 +8,8 @@ import { errorResponse } from "./utils/response";
 import { createError } from "./config";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-
-import rateLimit from "express-rate-limit";
 import rootRouter from "./routers";
-
 const app = express();
-
-export const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 100,
-  message: "Too many requests from this IP, please try again later.",
-});
 
 app.use(
   cors({

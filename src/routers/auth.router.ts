@@ -1,4 +1,3 @@
-import { limiter } from "@/app";
 import { handleDeleteAccount } from "@/controller/auth/deleteAccount";
 import { handleForgotPassword } from "@/controller/auth/forgotPassword";
 import { handleLogin } from "@/controller/auth/login";
@@ -7,6 +6,7 @@ import { handelRefreshToken } from "@/controller/auth/refreshToken";
 import { handleResetPassword } from "@/controller/auth/resetPassword";
 import { handleUpdatePassword } from "@/controller/auth/updatePassword";
 import { isLogin, isLogOut } from "@/middlewares/auth.middleware";
+import { limiter } from "@/utils/rate-limit";
 import validateRequest from "@/validators";
 import {
   validateForgotPassword,

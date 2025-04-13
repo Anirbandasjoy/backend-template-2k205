@@ -112,9 +112,7 @@ export const handleGetLoggedInUser = async (
       password: 0,
     };
     const loggedInUser = await findWithId(req.user._id, User, options);
-    console.log({
-      loggedInUser,
-    });
+
     successResponse(res, {
       message: "Fetched loggedIn user successfully",
       payload: loggedInUser,
