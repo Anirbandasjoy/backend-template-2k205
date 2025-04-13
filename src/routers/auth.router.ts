@@ -1,3 +1,4 @@
+import { limiter } from "@/app";
 import { handleDeleteAccount } from "@/controller/auth/deleteAccount";
 import { handleForgotPassword } from "@/controller/auth/forgotPassword";
 import { handleLogin } from "@/controller/auth/login";
@@ -18,26 +19,30 @@ const authRouter: Router = Router();
 
 authRouter.post(
   "/login",
+  limiter,
   isLogOut,
   validateRequest(validateLogin),
   handleLogin
 );
 
-authRouter.post("/logOut", isLogin, handleLogOut);
+authRouter.post("/logOut", limiter, isLogin, handleLogOut);
 authRouter.get("/refresh-token", handelRefreshToken);
 authRouter.post(
   "/forgot-password",
+  limiter,
   validateRequest(validateForgotPassword),
   handleForgotPassword
 );
 authRouter.put(
   "/reset-password",
+  limiter,
   validateRequest(validateResetPassword),
   handleResetPassword
 );
 
 authRouter.patch(
   "/update-password",
+  limiter,
   isLogin,
   validateRequest(validateUpdatePassword),
   handleUpdatePassword
