@@ -4,7 +4,7 @@ import express, {
   Request,
   Response,
 } from "express";
-import { errorResponse } from "./utils/response";
+import { errorResponse, successResponse } from "./utils/response";
 import { createError } from "./config";
 import cors from "cors";
 import cookieParser from "cookie-parser";
@@ -33,7 +33,9 @@ app.use(cookieParser());
 // XSS protection: sanitize user input
 
 app.get("/", (_req: Request, res: Response) => {
-  res.send("backend template 2025");
+  successResponse(res, {
+    message: "backend template 2025",
+  });
 });
 
 app.use("/api/v1", rootRouter);
