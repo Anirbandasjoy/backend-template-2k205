@@ -4,25 +4,19 @@ import express, {
   Request,
   Response,
 } from "express";
+import morgan from "morgan";
 import { errorResponse, successResponse } from "./utils/response";
 import { createError } from "./config";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import rootRouter from "./routers";
+import { splitStringToArray } from "./utils";
 const app = express();
-
+app.use(morgan("dev"));
 app.use(
   cors({
-    origin: (process.env.CORS_ORIGINS || "http://localhost:3000").split(","),
+    origin: process.env.ORIGINS && splitStringToArray(process.env.ORIGINS),
     credentials: true,
-    allowedHeaders: [
-      "Origin",
-      "X-Requested-With",
-      "Content-Type",
-      "Authorization",
-    ],
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    preflightContinue: false,
   })
 );
 

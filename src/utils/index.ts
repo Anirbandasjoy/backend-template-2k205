@@ -123,3 +123,7 @@ export const accessRefreshTokenAndCookieSetter = async (
     console.log(error);
   }
 };
+
+export function splitStringToArray(str: string) {
+  return str.split(",");
+}
